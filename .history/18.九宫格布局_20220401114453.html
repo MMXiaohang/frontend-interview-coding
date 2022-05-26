@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 清除默认样式 */
+    * { padding: 0; margin: 0; }
+
+    /* 全屏显示 */
+    html, body { height: 100% }
+
+    body {
+      /* 网格布局 */
+      display: grid;
+
+      /* 子元素居中 */
+      place-items: center;
+    }
+
+    /* 父元素 */
+    ul {
+      width: 300px;
+      
+      /* 清除默认样式 */
+      list-style: none;
+
+      /* 设置为flex布局 */
+      display: flex;
+
+      /* 设置换行 */
+      flex-flow: wrap;
+    }
+
+    /* 子元素 */
+    li {
+      /* 显示为网格布局 */
+      display: grid;
+
+      /* 子元素水平垂直居中 */
+      place-items: center;
+
+      /* 宽高都是100像素 */
+      width: 100px;
+      height: 100px;
+
+      /* 设置盒模型 */
+      box-sizing: border-box;
+
+      /* 设置1像素的边框 */
+      border: 1px solid black;
+
+      /* 负边距 */
+      margin: -1px 0 0 -1px;
+    }
+
+    /* 第1、4、7个子元素 */
+    li:nth-child(3n+1) {
+      /* 取消左负边距 */
+      margin-left: 0
+    }
+
+    /* 前三个子元素 */
+    li:nth-child(-n+3) {
+      /* 取消上负边距 */
+      margin-top: 0
+    }
+
+    /* 当鼠标经过时 */
+    li:hover {
+      /* 红色字体 */
+      color: red;
+
+      /* 红色边框 */
+      border: 1px solid;
+
+      /* 调高层级 */
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+  <script>
+    // 选择ul元素
+    const ul = document.getElementsByTagName('ul')[0]
+
+    // 监听ul元素的点击事件
+    ul.addEventListener('click', e => alert(e.target.innerText))
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav{
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+        }
+
+        .nav a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav>li>a:hover{
+            background-color: #eee;
+        }
+
+        .nav ul{
+            display: grid;
+            place-items: center;
+
+        }
+
+        .nav li{
+            list-style: none;
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <title>Title</title>
+    <style>
+        div{
+            margin: 100px;
+        }
+        /*正三角形*/
+        .test1{
+            width: 0;
+            height: 0;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            border-bottom: 100px solid pink;
+        }
+
+        /*梯形*/
+        .test2 {
+            width: 100px;
+            height: 0;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            border-bottom: 100px solid pink;
+        }
+
+        /*直角三角形*/
+        .test3 {
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid pink;
+            border-left: 100px solid transparent;
+        }
+        /*平行四边形*/
+        .test4 {
+            width: 100px;
+            height: 100px;
+            transform: skew(-20deg);
+            background-color: pink;
+        }
+        /*保持内部容器正常*/
+        .test4 div {
+            transform: skew(20deg);
+        }
+
+        /*圆角的内径和外径*/
+        .test5{
+            width: 100px;
+            height: 100px;
+            border: 30px solid black;
+            border-radius: 100px 25px 50px 50px;
+        }
+
+        /*椭圆形*/
+        .test6 {
+            width: 100px;
+            height: 200px;
+            background: pink;
+            border-radius: 50%;
+        }
+
+        /*半圆*/
+        .test7 {
+            width: 100px;
+            height: 50px;
+            border-radius: 50% / 100% 100% 0 0;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="test1"></div>
+    <div class="test2"></div>
+    <div class="test3"></div>
+    <div class="test4">
+        <div>123456</div>
+    </div>
+    <div class="test5"></div>
+    <div class="test6"></div>
+    <div class="test7"></div>
+    <img src="imgs/border-radius.png" alt="">
+</body>
+</html>

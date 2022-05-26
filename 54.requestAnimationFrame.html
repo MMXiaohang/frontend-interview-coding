@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #btn{
+            position: absolute;
+            top:250px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">点击取消</button>
+    <script>
+        let flag = true;
+        let left = 0;
+        const box = document.querySelector(".box");
+        function animate(cb, time){
+            let myReq = null; // 记录requestAnimationFrame的返回值
+            let i = 1;  // 记录requestAnimationFrame的执行次数（屏幕刷新次数）
+            // 计数器 % (60/一秒钟执行的次数)
+            myReq = requestAnimationFrame(function fn(){
+                if(i % parseInt(60 / (1000 / time)) === 0){
+                    cb();  // 执行
+                }
+                i++;  // 记录requestAnimationFrame执行的次数
+                myReq = requestAnimationFrame(fn);  // 递归开启下次requestAnimationFrame
+                window.myReq = myReq;
+            });
+        }
+
+        animate(() => {
+            console.log("封装定时器");
+            if(flag === true){
+                if(left >= 100){
+                    flag = false;
+                }
+                box.style.left = `${left++}px`;
+            }else{
+                if(left <= 0){
+                    flag = true;
+                }
+                box.style.left = `${left--}px`;
+            }
+        }, 50);
+
+        document.getElementById("btn").addEventListener("click", ()=>{
+            // 主动控制清除动画
+            cancelAnimationFrame(myReq);
+        })
+    </script>
+</body>
+</html>

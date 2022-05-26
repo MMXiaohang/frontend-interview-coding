@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const data = {
+    text: 'default'
+}
+const input = document.getElementById('input');
+const span = document.getElementById('span');
+//数据劫持
+Object.defineProperty(data, 'text', {
+    set(newVal){
+        input.value = newVal;
+        span.innerHTML = newVal;
+    }
+})
+
+input.addEventListener('keyup', e => {
+    data.text = e.target.value;
+})
+    </script>
+</body>
+</html>

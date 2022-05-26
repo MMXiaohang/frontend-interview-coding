@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body{
+            height: 100%;
+        }
+        
+        body{
+            display: grid;
+            place-items: center;
+            background-color: pink;
+        }
+
+        ul{
+            width: 300px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;            
+            background-color: antiquewhite;
+        }
+
+        li{
+            display: grid;
+            place-items: center;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            margin: -1px 0 0 -1px;
+            transition: all 1s linear;
+        }
+
+        /* li:nth-child(3n+1){
+            /* 第一列取消左负边距 
+            margin-left: 0;
+        } */
+
+        /* li:nth-child(-n+3){
+            /* 第一行取消上负边距 
+            margin-top: 0;
+        } */
+
+        li:hover{
+            color: red;
+            border: 2px solid;
+            z-index: 1;
+            font-size: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</body>
+</html>
