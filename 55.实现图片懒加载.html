@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+<h1>实现图片懒加载</h1>
+<div id="container">
+</div>
+
+<script>
+    window.onload = function () {
+        const images = [];
+        for (let i = 1; i <= 25; i++) {
+            images.push(`./imgs/images/${i}.png`);
+        }
+        let container = document.querySelector("#container");
+        container.innerHTML = images.map((item, i) => {
+            return `<img class="img${i}" src="${item}" data-src="./imgs/border-radius.png" />`;
+        }).join("");
+
+        const getTop = e => e.offsetTop;   //元素到浏览器顶部的距离
+
+        const imgs = document.querySelectorAll("img");
+
+        // 图片懒加载实现
+        const lazyLoad = () => {
+            let h = window.innerHeight;  // 可视区域高度
+            let s = document.documentElement.scrollTop || document.body.scrollTop;  // 滚动区域高度
+            // 滚动到了两秒后加载
+            imgs.forEach( item => {
+                if(item.src === item.dataset.src) return;
+                if (h + s >= getTop(item)) {  // 图片距离顶部的距离大于可视区域和滚动区域的高度之和，进行懒加载
+                    setTimeout(() => {
+                        let temp = new Image();  // 创建一个图片对象
+                        temp.src = item.getAttribute("data-src");
+                        // 如果图片加载完毕，那么用真图片替换假图片
+                        temp.onload = function () {
+                            item.src = item.getAttribute("data-src");
+                        }
+                    }, 2000);
+                }
+            })
+
+            // 滚动到了再加载
+            // imgs.forEach((item) => {
+            //     if(item.src === item.dataset.src) return;
+            //     if(h + s >= getTop(item)){
+            //         item.src = item.getAttribute("data-src");
+            //     }
+            // })
+        }
+
+
+        window.addEventListener("scroll", (e) => {
+            lazyLoad();
+        })
+    }
+</script>
+</body>
+</html>

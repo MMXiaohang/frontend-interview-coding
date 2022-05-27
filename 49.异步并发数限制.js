@@ -55,7 +55,7 @@
 const limitPool = async (poolLimit, array) => {
   const doingTasks = [];
   const tasks = [];
-  array.forEach(item => {
+  for (const item of array) {
     const p = Promise.resolve(item);
     tasks.push(p);
     if(poolLimit <= array.length){  // 需要限制
@@ -65,8 +65,8 @@ const limitPool = async (poolLimit, array) => {
         await Promise.race(doingTasks);  // 使用race等待队列中有promise状态变更后，再来执行循环
       }
     }
-  })
-  return Promise.all(tasks);
+  }
+    return Promise.all(tasks);
 }
 
 
