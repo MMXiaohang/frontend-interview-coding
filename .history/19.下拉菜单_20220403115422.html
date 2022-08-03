@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .nav{
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            width: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+        }
+
+        .nav a{
+            display: inline-block;
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav>li>a:hover{
+            background-color: #eee;
+        }
+
+        .nav ul{
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 120px;
+            border-left: 1px solid orange;
+            border-bottom: 1px solid orange;
+        }
+
+        .nav li{
+            list-style: none;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>说话</li>
+                <li>发言</li>
+                <li>加油</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
