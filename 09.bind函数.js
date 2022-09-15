@@ -3,7 +3,7 @@
 // 原理：利用 context.xxx = self obj.xx = func-->obj.xx()
 Function.prototype.myBind  = function(context, ...outerArgs){
     let self = this;  // 保存函数，因为返回函数中的this会变成调用者
-    
+
     return function F(...innerArgs){   // 返回了一个函数，...innerArgs为实际调用时传入的参数
         // 考虑new的方式
         if(self instanceof F){
@@ -12,9 +12,25 @@ Function.prototype.myBind  = function(context, ...outerArgs){
 
         return self.apply(context, [...outerArgs, ...innerArgs]);   // 返回改变了this的函数，参数合并
     }
-    
+
 }
 
 document.body.addEventListener('click', func.bind(obj, 10, 20))
 
 function func(params) {}
+
+Function.prototype.myCall = function(context=window, ...args){
+    let fn = this
+    let key = Symbol('key')
+    context.key = fn
+    let res = context.key(...args)
+    delete context.key
+    return res
+}
+
+Function.prototype.myBind1 = function(context, ...args){
+    let fn = this
+    return function (){
+        return fn.myCall(context, ...args)
+    }
+}
