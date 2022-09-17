@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        /* 半圆 */
+        .half-circle {
+            height: 50px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        /* 扇形 */
+        .sector {
+            border-radius: 100px 0 0;
+        }
+
+        /* 三角 */
+        /*记忆口诀：盒子宽高均为零，三面边框皆透明。 */
+        .triangle {
+            width: 0px;
+            height: 0px;
+            background: none;
+            border: 50px solid red;
+            border-color: red transparent transparent transparent;
+        }
+
+        /* 梯形 */
+        .ladder {
+            width: 50px;
+            height: 0px;
+            background: none;
+            border: 50px solid red;
+            border-color: red transparent transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sector"></div>
+    <div class="half-circle"></div>
+    <div class="triangle"></div>
+    <div class="ladder"></div>
+
+    <script>
+        var val = 10
+
+        const obj1 = {
+            val: 20,
+            fn: () => console.log('----', this.val)
+        }
+
+        obj1.fn()
+    </script>
+</body>
+
+</html>

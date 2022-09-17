@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扇形</title>
+    <style>
+        #div{
+            margin-top: 200px;
+            margin-left: 200px;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        #circle{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: blue;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <div id="circle"></div>
+    </div>
+</body>
+</html>

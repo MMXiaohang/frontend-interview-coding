@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟DOM转真实DOM</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        /*
+            虚拟dom节点（fibre）包括 tag节点标签， attrs 节点属性， children 子节点数组
+        */
+       function render(vnode, container){
+            if(typeof container !== 'object'){
+                container = document.querySelector(container)
+            }
+            container.appendChild(_render(vnode))
+       }
+
+       function _render(vnode){
+            // 字符串
+            if(typeof vnode !== 'object'){  // 文本元素
+                return document.createTextNode(vnode)
+            }else{
+                let dom = document.createElement(vnode.tag)
+                if(vnode.attrs){
+                    for(let key of vnode.attrs){
+                        dom.setAttribute(key, vnode.attrs[key])
+                    }
+                }
+                if(vnode.children){
+                    if(typeof vnode.children === 'object'){
+                        for(let child of vnode.children){
+                            render(child, vnode)  // 将子节点对象和当前父容器作为参数传入
+                        }
+                    }else{
+                        render(vnode.children, vnode)
+                    }
+                }
+                return dom
+            }
+       }
+
+       let obj = {
+      tag: 'div',
+      attrs: {
+        class: 'title'
+      },
+      children: [
+        {
+          tag: 'h1',
+          attrs: {
+            class: 'h1',
+          },
+          children: '我是h1标签'
+        }, {
+          tag: 'h4',
+          attrs: {
+            class: 'h4'
+          },
+          children: '我是h4标签'
+        }
+      ]
+    }
+
+    render(obj, '#app')
+    </script>
+</body>
+</html>

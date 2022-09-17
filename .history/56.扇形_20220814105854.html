@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扇形</title>
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+            /* transform: rotate(-45deg); */
+        }
+
+        #circle{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: saddlebrown;
+            overflow: hidden;
+        }
+
+        #d1{
+            transform: skewX(145deg);
+            transform-origin: 0 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+        }
+
+        .container{
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: transparent;
+        }
+
+        .c1{
+            width: 100px;
+            height: 50px;
+            background-color: aqua;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .c2{
+            width: 101px;
+            height: 51px;
+            background-color: white;
+            border-radius: 0 0 50px 50px;
+            transform: rotate(-145deg);
+            transform-origin: center top;
+        }
+
+        .semicircle{
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-radius: 50%;
+            border-color: transparent transparent transparent red;
+            transform: rotateZ(145deg);
+            margin-bottom: 100px;
+        }
+
+        .pie{
+            margin-top: 100px;
+            margin-left: 100px;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            background-color: aqua;
+        }
+
+        .slice{
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top: 0;
+            right: 0;
+            transform: skewY(-30deg);
+            transform-origin: 0 100%;
+            background-color: yellow;
+            overflow: hidden;
+        }
+
+        .slice:nth-of-type(2n){
+            background-color: green;
+        }
+
+        .slice-two{
+            transform: rotate(-90deg);
+        }
+
+        .slice-three{
+            transform: rotate(-180deg);
+        }
+        .slice-four{
+            transform: rotate(-180deg);
+        }
+        .slice-five{
+            transform: rotate(-240deg);
+        }
+        .slice-six{
+            transform: rotate(-300deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <div id="circle">
+            <div id="d1"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="c1"></div>
+        <div class="c2"></div>
+    </div>
+
+    <div class="semicircle"></div>
+
+    <div class="pie">
+        <div class="slice slice-one"></div>
+        <div class="slice slice-two"></div>
+        <div class="slice slice-three"></div>
+        <div class="slice slice-four"></div>
+        <div class="slice slice-five"></div>
+        <div class="slice slice-six"></div>
+    </div>
+</body>
+</html>

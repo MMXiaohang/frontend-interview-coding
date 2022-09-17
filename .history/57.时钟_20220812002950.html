@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <style>
+        *{margin: 0; padding: 0;}
+  .loading{margin:100px auto; width: 25em; height: 8em; position: relative;}
+  .clock{position: relative; width: 8em; height: 8em; display: inline-block;}
+  .loading .progress{position: absolute; width: 6em; height:6em; background-color: white; border-radius: 50%; left: 1em; top: 1em; line-height: 6em; text-align: center;
+  }
+  .progress span{ font: 50px/2em Arial;}
+  .left,.right{width: 4em;height: 8em;overflow: hidden; position: relative; float: left;}
+  .left{ border-radius: 8em 0 0 8em;}
+  .right{ border-radius: 0 8em 8em 0;}
+  .left div,.right div{content:"";  position:absolute; display:block; width: 4em;height: 8em; background-color: white;border-radius: 8em 0 0 8em; transition:all .3s; transform-origin:right center; transform:rotateZ(-180deg);}
+  .right div{content:"";  position:absolute; display:block;   border-radius: 0 8em 8em 0;transform-origin:left center; }
+  .clock:nth-child(1) .left div,.clock:nth-child(1) .right div{
+    background-color: #4CAF4F;
+  }
+  .clock:nth-child(2) .left div,.clock:nth-child(2) .right div{
+    background-color: #02A3EC;
+  }
+  .clock:nth-child(3) .left div,.clock:nth-child(3) .right div{
+    background-color: #FBC02E;
+  }
+
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="clock hours">    
+          <div class="left"><div></div></div>
+          <div class="right"><div></div></div>
+          <div class="progress"><span>0</span></div>
+        </div>
+        <div class="clock minutes">    
+          <div class="left"><div></div></div>
+          <div class="right"><div></div></div>
+          <div class="progress"><span>0</span></div>
+        </div>
+        <div class="clock seconds">    
+          <div class="left"><div></div></div>
+          <div class="right"><div></div></div>
+          <div class="progress"><span>0</span></div>
+        </div>
+      </div>
+</body>
+</html>
